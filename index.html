@@ -14,7 +14,7 @@
   <meta name="author" content="mgr Katarzyna Puchała" />
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
   <meta name="googlebot" content="index, follow" />
-  <meta name="theme-color" content="#4a6741" />
+  <meta name="theme-color" content="#7d3b4f" />
   <link rel="canonical" href="https://neurologopeda-site.vercel.app/" />
 
   <!-- ═══════════════════════════════════════════
@@ -125,29 +125,29 @@
        DESIGN TOKENS
     ═══════════════════════════════════════════ */
     :root {
-      /* ── SZAŁWIOWA PALETA ──────────────────────
-         Szałwia: ciepły, ziołowy, spokojny odcień
-         Złoto:   ciepłe, matowe — nie krzykliwe
-         Krem:    mleczna biel z nutą wanilii
-         Brąz:    głęboki, ciepły — zamiast czerni
+      /* ── BURGUND + NUDE BEIGE PALETA ───────────
+         Burgund:  głęboki, ciepły, elegancki
+         Nude:     beżowo-złoty — zamiast zimnego złota
+         Krem:     ciepła biel z nutą wanilii
+         Ink:      głęboki ciepły brąz — zamiast czerni
       ─────────────────────────────────────────── */
-      --ink:        #1e1810;          /* najgłębszy brąz — nagłówki, stopka */
-      --forest:     #4a6741;          /* szałwia ciemna — tła sekcji, nav dark */
-      --pine:       #5d7d54;          /* szałwia medium */
-      --sage:       #7d9e73;          /* szałwia główna — akcenty, ikony */
-      --sage-l:     #a8bf9f;          /* szałwia jasna — hover, tła */
-      --moss:       #d0deca;          /* szałwia bardzo jasna */
-      --mist:       #eef3ec;          /* szałwiowy mist — tła kart */
-      --gold:       #b8965a;          /* złoto matowe — CTA, akcenty */
-      --gold-l:     #d4b07a;          /* złoto jasne — na ciemnych tłach */
-      --gold-xl:    #f5e8d0;          /* złoto kremowe — subtelne tła */
-      --cream:      #faf7f0;          /* krem bazowy — tło strony */
-      --warm:       #f4ede0;          /* ciepły piasek — sekcje alternate */
-      --paper:      #fffdf8;          /* czysta biel z ciepłym odcieniem */
-      --text:       #1e1810;          /* tekst podstawowy */
-      --muted:      #7a6e5a;          /* tekst drugorzędny */
-      --border:     rgba(125,158,115,0.16);   /* obramowania szałwiowe */
-      --border-g:   rgba(184,150,90,0.2);     /* obramowania złote */
+      --ink:        #1a0e0e;          /* najgłębszy brąz wiśniowy — stopka */
+      --forest:     #7d3b4f;          /* burgund główny — tła hero, nav dark */
+      --pine:       #9a4d62;          /* burgund medium — hover tła */
+      --sage:       #c4a882;          /* nude beż główny — akcenty, ikony */
+      --sage-l:     #d9c4a8;          /* nude jasny — hover, tła */
+      --moss:       #ecddd0;          /* nude bardzo jasny */
+      --mist:       #f7f0ea;          /* nude mist — tła kart */
+      --gold:       #c4a882;          /* nude beż — CTA, akcenty (=sage) */
+      --gold-l:     #d9c4a8;          /* nude jasny — na ciemnych tłach */
+      --gold-xl:    #f2e8dc;          /* nude kremowy — subtelne tła */
+      --cream:      #faf6f1;          /* krem bazowy — tło strony */
+      --warm:       #f5ede4;          /* ciepły piasek — sekcje alternate */
+      --paper:      #fffcf8;          /* czysta biel z ciepłym odcieniem */
+      --text:       #1a0e0e;          /* tekst podstawowy */
+      --muted:      #7a6058;          /* tekst drugorzędny — ciepły szarobrąz */
+      --border:     rgba(196,168,130,0.2);    /* obramowania nude */
+      --border-g:   rgba(125,59,79,0.15);     /* obramowania burgundowe */
       --serif:      'Playfair Display', 'Georgia', serif;
       --sans:       'DM Sans', sans-serif;
       --mono:       'DM Mono', monospace;
@@ -815,28 +815,74 @@
       margin-top: 0.4rem;
     }
 
-    /* cert pills */
+    /* cert tiles — ciemniejsze, większe, premium */
     .cert-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 0.5rem;
+      gap: 0.6rem;
       margin-top: 2.5rem;
     }
 
     .cert {
       display: flex;
-      gap: 0.6rem;
-      align-items: flex-start;
-      padding: 0.7rem 0.9rem;
-      background: var(--paper);
-      border: 1px solid var(--border);
-      font-size: 0.8rem;
-      color: var(--muted);
-      line-height: 1.4;
-      transition: border-color 0.25s, color 0.25s;
+      flex-direction: column;
+      gap: 0.4rem;
+      padding: 1.1rem 1.2rem;
+      background: var(--forest);
+      border: 1px solid rgba(196,168,130,0.15);
+      transition: background 0.3s, border-color 0.3s, transform 0.25s;
+      position: relative;
+      overflow: hidden;
     }
 
-    .cert:hover { border-color: var(--gold); color: var(--forest); }
+    /* złota kreska na górze przy hover */
+    .cert::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(to right, var(--gold), transparent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.35s var(--ease);
+    }
+
+    .cert:hover {
+      background: var(--pine);
+      border-color: rgba(196,168,130,0.3);
+      transform: translateY(-2px);
+    }
+
+    .cert:hover::before { transform: scaleX(1); }
+
+    .cert-dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--gold);
+      flex-shrink: 0;
+      margin-top: 1px;
+      /* ukrywamy — zastępujemy strukturą kolumnową */
+      display: none;
+    }
+
+    /* tekst kafelka */
+    .cert-text {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--cream);
+      line-height: 1.35;
+      letter-spacing: 0.01em;
+    }
+
+    .cert-sub {
+      font-family: var(--mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      opacity: 0.7;
+    }
 
     .cert-dot {
       width: 5px;
@@ -1607,6 +1653,68 @@
 
     nav.open .nav-links a { font-size: 1.1rem; }
 
+    /* ── ZAKŁADKI WIZYTY ── */
+    .visit-tabs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      margin-bottom: 3rem;
+      border: 1px solid rgba(196,168,130,0.2);
+      width: fit-content;
+      min-width: 420px;
+    }
+
+    .visit-tab {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(250,246,241,0.45);
+      background: transparent;
+      border: none;
+      border-right: 1px solid rgba(196,168,130,0.2);
+      padding: 1rem 2rem;
+      cursor: pointer;
+      transition: all 0.3s var(--ease);
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .visit-tab:last-child { border-right: none; }
+
+    .visit-tab:hover {
+      color: rgba(250,246,241,0.85);
+      background: rgba(255,255,255,0.04);
+    }
+
+    .visit-tab.active {
+      background: var(--gold);
+      color: var(--forest);
+      font-weight: 500;
+    }
+
+    .visit-panel {
+      animation: fadeTab 0.4s var(--ease-out) both;
+    }
+
+    @keyframes fadeTab {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: none; }
+    }
+
+    .visit-note {
+      text-align: center;
+      margin-top: 2.5rem;
+      font-size: 0.85rem;
+      color: rgba(250,246,241,0.4);
+      font-style: italic;
+    }
+
+    @media (max-width: 480px) {
+      .visit-tabs { width: 100%; min-width: 0; grid-template-columns: 1fr 1fr; }
+      .visit-tab { padding: 0.9rem 0.8rem; font-size: 0.6rem; }
+      .visit-grid { grid-template-columns: 1fr; }
+    }
+
     /* ═══════════════════════════════════════════
        EDIT COMMENTS GUIDE
        Szukaj komentarzy "EDIT:" aby znaleźć
@@ -1782,14 +1890,38 @@
 
           <!-- EDIT: certyfikaty i szkolenia -->
           <div class="cert-grid">
-            <div class="cert"><span class="cert-dot"></span> Neurologopedia kliniczna</div>
-            <div class="cert"><span class="cert-dot"></span> Wczesna interwencja</div>
-            <div class="cert"><span class="cert-dot"></span> Terapia karmienia niemowląt</div>
-            <div class="cert"><span class="cert-dot"></span> Wsparcie laktacyjne</div>
-            <div class="cert"><span class="cert-dot"></span> NDT-Bobath (niemowlęta)</div>
-            <div class="cert"><span class="cert-dot"></span> Terapia Forbrain</div>
-            <div class="cert"><span class="cert-dot"></span> Elektrostymulacja VitalStim</div>
-            <div class="cert"><span class="cert-dot"></span> Terapia dysfagii i połykania</div>
+            <div class="cert">
+              <span class="cert-text">Neurologopedia kliniczna</span>
+              <span class="cert-sub">Specjalizacja</span>
+            </div>
+            <div class="cert">
+              <span class="cert-text">Wczesna interwencja</span>
+              <span class="cert-sub">Specjalizacja</span>
+            </div>
+            <div class="cert">
+              <span class="cert-text">Terapia karmienia niemowląt</span>
+              <span class="cert-sub">Certyfikat</span>
+            </div>
+            <div class="cert">
+              <span class="cert-text">Wsparcie laktacyjne</span>
+              <span class="cert-sub">Certyfikat</span>
+            </div>
+            <div class="cert">
+              <span class="cert-text">NDT-Bobath</span>
+              <span class="cert-sub">Certyfikat · niemowlęta</span>
+            </div>
+            <div class="cert">
+              <span class="cert-text">Terapia Forbrain</span>
+              <span class="cert-sub">Certyfikat</span>
+            </div>
+            <div class="cert">
+              <span class="cert-text">Elektrostymulacja VitalStim</span>
+              <span class="cert-sub">Certyfikat</span>
+            </div>
+            <div class="cert">
+              <span class="cert-text">Terapia dysfagii i połykania</span>
+              <span class="cert-sub">Szkolenie specjalistyczne</span>
+            </div>
           </div>
         </div>
       </div>
@@ -1869,31 +2001,75 @@
       <h2 class="title" style="color:var(--cream);">Jak wygląda spotkanie</h2>
       <p class="subtitle" style="color:rgba(232,239,233,0.55);margin-bottom:4rem;">Bez presji i pośpiechu — w atmosferze pełnego bezpieczeństwa.</p>
     </div>
-    <!-- EDIT: kroki wizyty -->
-    <div class="visit-grid reveal">
-      <div class="visit-step">
-        <div class="visit-step-n">1</div>
-        <h4>Rozmowa z rodzicem</h4>
-        <p>Poznaję historię rozwoju dziecka, trudności i oczekiwania rodziny. To ważna część procesu diagnostycznego.</p>
-      </div>
-      <div class="visit-step">
-        <div class="visit-step-n">2</div>
-        <h4>Obserwacja dziecka</h4>
-        <p>Delikatna ocena funkcji ssania, połykania i oddychania — obserwuję karmienie na żywo.</p>
-      </div>
-      <div class="visit-step">
-        <div class="visit-step-n">3</div>
-        <h4>Diagnoza funkcjonalna</h4>
-        <p>Określam przyczyny trudności, oceniam napięcie mięśniowe i odruchy oralne dziecka.</p>
-      </div>
-      <div class="visit-step">
-        <div class="visit-step-n">4</div>
-        <h4>Plan i zalecenia</h4>
-        <p>Rodzic otrzymuje jasne wskazówki, zalecenia do domu i konkretny plan kolejnych kroków.</p>
-      </div>
+    <!-- PRZEŁĄCZNIK ZAKŁADEK -->
+    <div class="visit-tabs reveal">
+      <button class="visit-tab active" data-tab="dzieci">
+        Niemowlę i dziecko
+      </button>
+      <button class="visit-tab" data-tab="dorośli">
+        Dorosły pacjent
+      </button>
     </div>
+
+    <!-- ZAKŁADKA: DZIECI -->
+    <div class="visit-panel active reveal" id="tab-dzieci">
+      <div class="visit-grid">
+        <div class="visit-step">
+          <div class="visit-step-n">1</div>
+          <h4>Rozmowa z rodzicem</h4>
+          <p>Poznaję historię rozwoju dziecka, trudności i oczekiwania rodziny. To ważna część procesu diagnostycznego.</p>
+        </div>
+        <div class="visit-step">
+          <div class="visit-step-n">2</div>
+          <h4>Obserwacja dziecka</h4>
+          <p>Delikatna ocena funkcji ssania, połykania i oddychania — obserwuję karmienie na żywo lub reakcje komunikacyjne.</p>
+        </div>
+        <div class="visit-step">
+          <div class="visit-step-n">3</div>
+          <h4>Diagnoza funkcjonalna</h4>
+          <p>Określam przyczyny trudności, oceniam napięcie mięśniowe, odruchy oralne i poziom rozwoju mowy.</p>
+        </div>
+        <div class="visit-step">
+          <div class="visit-step-n">4</div>
+          <h4>Plan i zalecenia</h4>
+          <p>Rodzic otrzymuje jasne wskazówki, ćwiczenia do domu i konkretny plan kolejnych kroków terapii.</p>
+        </div>
+      </div>
+      <p class="visit-note">Przyjmuję dzieci od 1. dnia życia — noworodki, niemowlęta, przedszkolaki i uczniów.</p>
+    </div>
+
+    <!-- ZAKŁADKA: DOROŚLI -->
+    <div class="visit-panel reveal" id="tab-dorośli" style="display:none;">
+      <div class="visit-grid">
+        <div class="visit-step">
+          <div class="visit-step-n">1</div>
+          <h4>Wywiad i historia</h4>
+          <p>Rozmawiam o trudnościach, ich historii i wpływie na codzienne życie. Bez oceniania, w pełnym komforcie i dyskrecji.</p>
+        </div>
+        <div class="visit-step">
+          <div class="visit-step-n">2</div>
+          <h4>Diagnoza neurologopedyczna</h4>
+          <p>Oceniam funkcje mowy, połykania, głosu i sprawność aparatu mowy. Uwzględniam kontekst neurologiczny i medyczny.</p>
+        </div>
+        <div class="visit-step">
+          <div class="visit-step-n">3</div>
+          <h4>Omówienie wyników</h4>
+          <p>Wyjaśniam co zaobserwowałam, jakie są przyczyny trudności i jakie metody terapeutyczne będą najbardziej skuteczne.</p>
+        </div>
+        <div class="visit-step">
+          <div class="visit-step-n">4</div>
+          <h4>Indywidualny plan terapii</h4>
+          <p>Ustalamy realistyczny plan pracy — tempo, częstotliwość wizyt i ćwiczenia do samodzielnej praktyki w domu.</p>
+        </div>
+      </div>
+      <p class="visit-note">Pracuję z dorosłymi w każdym wieku — zarówno z osobami po zdarzeniach neurologicznych, jak i tymi, którzy chcą poprawić jakość mowy i komunikacji.</p>
+    </div>
+
   </div>
 </div>
+
+<!-- STYLE dla zakładek — przeniesione do head -->
+<!-- SCRIPT dla zakładek — przeniesiony do głównego bloku JS -->
 
 <!-- ══ CENNIK ══ -->
 <div class="section" id="cennik" style="background:var(--warm);">
@@ -2331,6 +2507,27 @@
       fabTip.style.transform = '';
     }, 2500);
   }, 3500);
+
+  // Zakładki wizyty — dzieci / dorośli
+  const visitTabs   = document.querySelectorAll('.visit-tab');
+  const visitPanels = document.querySelectorAll('.visit-panel');
+
+  visitTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const target = tab.dataset.tab;
+      visitTabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      visitPanels.forEach(p => {
+        if (p.id === 'tab-' + target) {
+          p.style.display = 'block';
+          p.style.animation = 'none';
+          requestAnimationFrame(() => { p.style.animation = ''; });
+        } else {
+          p.style.display = 'none';
+        }
+      });
+    });
+  });
 
   // No-JS fallback
   document.documentElement.classList.remove('no-js');
