@@ -268,29 +268,7 @@
       border-bottom-color: var(--border);
     }
 
-    .nav-logo {
-      display: flex;
-      flex-direction: column;
-      text-decoration: none;
-    }
-
-    .nav-logo-name {
-      font-family: var(--serif);
-      font-size: 1.05rem;
-      font-weight: 500;
-      color: var(--forest);
-      letter-spacing: 0.01em;
-      line-height: 1.2;
-    }
-
-    .nav-logo-title {
-      font-family: var(--mono);
-      font-size: 0.62rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-top: 1px;
-    }
+    /* nav-logo styles przeniesione niżej — patrz sekcja LOGO NAV */
 
     .nav-links {
       display: flex;
@@ -1651,6 +1629,72 @@
       z-index: 690;
     }
 
+    /* ── LOGO NAV ── */
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+    }
+
+    .nav-logo-img {
+      width: 44px;
+      height: 44px;
+      object-fit: contain;
+      flex-shrink: 0;
+      transition: opacity 0.3s;
+    }
+
+    /* domyślnie (nav na górze, ciemne hero) — krem widoczny, burgund ukryty */
+    .nav-logo-scrolled { display: none; opacity: 0; }
+    .nav-logo-top      { display: block; opacity: 0.9; }
+
+    /* po scrollowaniu — burgund widoczny, krem ukryty */
+    .nav.scrolled .nav-logo-scrolled { display: block; opacity: 1; }
+    .nav.scrolled .nav-logo-top      { display: none; opacity: 0; }
+
+    .nav-logo-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .nav-logo-name {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: var(--cream);
+      letter-spacing: 0.01em;
+      line-height: 1.2;
+      transition: color 0.3s;
+    }
+
+    .nav.scrolled .nav-logo-name { color: var(--forest); }
+
+    .nav-logo-title {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(245,232,210,0.6);
+      margin-top: 1px;
+      transition: color 0.3s;
+    }
+
+    .nav.scrolled .nav-logo-title { color: var(--gold); }
+
+    /* ── LOGO HERO ── */
+    .hero-logo-wrap {
+      margin-bottom: 2.5rem;
+      animation: fadeIn 0.7s 0.1s ease both;
+    }
+
+    .hero-logo-img {
+      width: 120px;
+      height: auto;
+      object-fit: contain;
+      opacity: 0.88;
+    }
+
     nav.open .nav-links a { font-size: 1.1rem; }
 
     /* ── ZAKŁADKI WIZYTY ── */
@@ -1734,9 +1778,22 @@
 <!-- ══ NAV ══ -->
 <nav class="nav" id="nav">
   <a class="nav-logo" href="#">
-    <span class="nav-logo-name">Katarzyna Puchała</span>
-    <!-- EDIT: zmień tytuł zawodowy -->
-    <span class="nav-logo-title">Neurologopeda kliniczny · Bilcza</span>
+    <!-- nav scrolled → symbol burgund na kremie -->
+    <!-- nav transparent (hero) → symbol krem na burgundzie -->
+    <img
+      class="nav-logo-img nav-logo-scrolled"
+      src="img/symbol-burgund-transparent.png"
+      alt="Logo Gabinet Neurologopedyczny Katarzyna Puchała"
+    />
+    <img
+      class="nav-logo-img nav-logo-top"
+      src="img/symbol-krem-transparent.png"
+      alt="Logo Gabinet Neurologopedyczny Katarzyna Puchała"
+    />
+    <div class="nav-logo-text">
+      <span class="nav-logo-name">Katarzyna Puchała</span>
+      <span class="nav-logo-title">Neurologopeda kliniczny · Bilcza</span>
+    </div>
   </a>
   <ul class="nav-links" id="navLinks">
     <li><a href="#o-mnie">O mnie</a></li>
@@ -1756,6 +1813,16 @@
 
   <!-- LEFT DARK PANEL -->
   <div class="hero-l">
+
+    <!-- LOGO w hero — krem na ciemnym tle -->
+    <div class="hero-logo-wrap">
+      <img
+        class="hero-logo-img"
+        src="img/symbol-krem-transparent.png"
+        alt="Logo Gabinet Neurologopedyczny Katarzyna Puchała"
+      />
+    </div>
+
     <div class="hero-eyebrow">
       <span class="hero-eyebrow-line"></span>
       <!-- EDIT: lokalizacja i tytuł -->
@@ -1801,7 +1868,7 @@
   <div class="hero-r">
     <!-- EDIT: zamień na własne zdjęcie terapeutki -->
     <img
-      src="img/doctor.jpg"
+      src="https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?w=1000&q=90&auto=format&fit=crop"
       alt="mgr Katarzyna Puchała neurologopeda kliniczny Kielce Bilcza – terapia karmienia niemowląt"
       loading="eager"
     />
@@ -1858,7 +1925,7 @@
           <!-- EDIT: zamień na własne zdjęcie (proporcje 3:4) -->
           <img
             class="about-img-main"
-            src="img/doctor.jpg"
+            src="https://images.unsplash.com/photo-1651008376811-b90baee60c1f?w=800&q=85&auto=format&fit=crop"
             alt="mgr Katarzyna Puchała neurologopeda Bilcza Kielce"
           />
           <!-- EDIT: zamień na zdjęcie gabinetu lub detalu pracy -->
