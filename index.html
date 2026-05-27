@@ -2864,26 +2864,32 @@
         </div>
       </div>
 
-      <!-- EDIT: formularz kontaktowy — podłącz Formspree lub własny backend -->
-      <div class="form">
+      <!-- EDIT: wstaw swój ID Formspree zamiast TWOJ_ID -->
+      <form
+        class="form"
+        id="contactForm"
+        action="https://formspree.io/f/mnjrlbad"
+        method="POST"
+      >
+        <input type="text" name="_gotcha" style="display:none" />
+
         <div class="form-row">
           <div class="fg">
             <label>Imię i nazwisko *</label>
-            <input type="text" placeholder="Anna Kowalska" required />
+            <input type="text" name="imie_nazwisko" placeholder="Anna Kowalska" required />
           </div>
           <div class="fg">
             <label>Telefon *</label>
-            <input type="tel" placeholder="600 000 000" required />
+            <input type="tel" name="telefon" placeholder="600 000 000" required />
           </div>
         </div>
         <div class="fg">
           <label>E-mail</label>
-          <input type="email" placeholder="mama@email.pl" />
+          <input type="email" name="email" placeholder="mama@email.pl" />
         </div>
-        <!-- EDIT: opcje wyboru usługi -->
         <div class="fg">
           <label>Rodzaj konsultacji *</label>
-          <select required>
+          <select name="rodzaj_konsultacji" required>
             <option value="">Wybierz...</option>
             <option>Diagnoza neurologopedyczna (180 zł)</option>
             <option>Konsultacja neurologopedyczna (200 zł)</option>
@@ -2895,21 +2901,27 @@
         </div>
         <div class="fg">
           <label>Wiek dziecka i opis trudności</label>
-          <textarea placeholder="Np. córka 6 tygodni, problemy z ssaniem piersi, ból podczas karmienia, podejrzenie krótkiego wędzidełka..."></textarea>
+          <textarea name="opis" placeholder="Np. córka 6 tygodni, problemy z ssaniem piersi, ból podczas karmienia, podejrzenie krótkiego wędzidełka..."></textarea>
         </div>
         <div class="fg">
           <label>Preferowany termin</label>
-          <input type="text" placeholder="Np. rano w tygodniu, czwartek po 15:00..." />
+          <input type="text" name="termin" placeholder="Np. rano w tygodniu, czwartek po 15:00..." />
         </div>
         <label class="consent">
           <input type="checkbox" required />
           <span>Wyrażam zgodę na przetwarzanie moich danych osobowych w celu umówienia wizyty, zgodnie z RODO. *</span>
         </label>
-        <!-- EDIT: podłącz formularz do Formspree: action="https://formspree.io/f/TWOJ_ID" -->
-        <button class="btn btn-gold" style="width:100%;justify-content:center;" onclick="alert('Formularz demo. Podłącz Formspree: formspree.io')">
+        <button type="submit" class="btn btn-gold" style="width:100%;justify-content:center;" id="submitBtn">
           Wyślij zapytanie →
         </button>
-      </div>
+
+        <div id="formSuccess" style="display:none;margin-top:0.5rem;padding:1.2rem 1.5rem;background:rgba(125,59,79,0.07);border-left:2px solid var(--gold);font-size:0.88rem;color:var(--forest);line-height:1.7;">
+          <strong>Wiadomość wysłana!</strong> Dziękuję za kontakt — odezwę się najczęściej tego samego dnia.
+        </div>
+        <div id="formError" style="display:none;margin-top:0.5rem;padding:1.2rem 1.5rem;background:rgba(200,50,50,0.05);border-left:2px solid #c44;font-size:0.88rem;color:#922;line-height:1.7;">
+          Coś poszło nie tak. Proszę spróbować ponownie lub zadzwonić: <a href="tel:727411741" style="color:var(--forest);font-weight:500;">727 411 741</a>
+        </div>
+      </form>
     </div>
   </div>
 </div>
@@ -3102,6 +3114,39 @@
       });
     }
   })();
+
+  // Formularz kontaktowy Formspree
+  const contactForm = document.getElementById('contactForm');
+  if (contactForm) {
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn     = document.getElementById('submitBtn');
+      const success = document.getElementById('formSuccess');
+      const error   = document.getElementById('formError');
+      btn.textContent = 'Wysyłanie...';
+      btn.disabled = true;
+      try {
+        const res = await fetch(contactForm.action, {
+          method: 'POST',
+          body: new FormData(contactForm),
+          headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) {
+          contactForm.reset();
+          success.style.display = 'block';
+          error.style.display   = 'none';
+          btn.textContent = 'Wysłano ✓';
+        } else {
+          throw new Error();
+        }
+      } catch {
+        error.style.display   = 'block';
+        success.style.display = 'none';
+        btn.textContent = 'Wyślij zapytanie →';
+        btn.disabled = false;
+      }
+    });
+  }
 
   // No-JS fallback
   document.documentElement.classList.remove('no-js');
