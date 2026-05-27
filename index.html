@@ -1682,21 +1682,105 @@
 
     .nav.scrolled .nav-logo-title { color: var(--gold); }
 
+    /* ══ WYKSZTAŁCENIE ══ */
+    .edu-section {
+      margin-bottom: 3.5rem;
+    }
+
+    .edu-label { margin-bottom: 1.5rem; }
+
+    .edu-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .edu-card {
+      background: var(--forest);
+      border: 1px solid rgba(196,168,130,0.2);
+      padding: 2rem 2rem 1.6rem;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+
+    .edu-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(to right, var(--gold), transparent);
+    }
+
+    .edu-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 36px rgba(125,59,79,0.2);
+    }
+
+    .edu-year {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+      opacity: 0.8;
+    }
+
+    .edu-degree {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--cream);
+      line-height: 1.3;
+      margin-bottom: 0.3rem;
+    }
+
+    .edu-type {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(245,232,210,0.45);
+      margin-bottom: 0.6rem;
+    }
+
+    .edu-school {
+      font-size: 0.84rem;
+      color: rgba(245,232,210,0.65);
+      line-height: 1.45;
+    }
+
+    .edu-badge {
+      display: inline-block;
+      margin-top: 1.2rem;
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid rgba(196,168,130,0.3);
+      padding: 0.22rem 0.65rem;
+    }
+
+    @media (max-width: 600px) {
+      .edu-grid { grid-template-columns: 1fr; }
+    }
+
     /* ══ ROZWÓJ ZAWODOWY ══ */
     .dev-stats {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
+      display: flex;
       margin-bottom: 3.5rem;
     }
     .dev-stat {
       background: var(--paper);
-      padding: 1.8rem 1.5rem;
+      border: 1px solid var(--border);
+      padding: 1.8rem 2.5rem;
       display: flex;
       flex-direction: column;
       gap: 0.3rem;
+      width: fit-content;
+      min-width: 220px;
       transition: background 0.25s;
     }
     .dev-stat:hover { background: var(--mist); }
@@ -1858,7 +1942,6 @@
     .dev-expand-btn.hidden { display: none; }
     .dev-expand-hint { font-size: 0.78rem; color: var(--muted); }
     @media (max-width: 768px) {
-      .dev-stats { grid-template-columns: 1fr 1fr; }
       .dev-timeline::before { left: 0; }
       .dev-year-block { grid-template-columns: 1fr; }
       .dev-year-left { flex-direction: row; align-items: center; gap: 0.8rem; padding: 1.2rem 0 0.4rem; }
@@ -1866,7 +1949,6 @@
       .dev-year-right { padding: 0.5rem 0 1.5rem 1rem; border-left: 2px solid var(--border); margin-left: 0.5rem; }
       .dev-toggle-bar { flex-direction: column; align-items: flex-start; }
     }
-    @media (max-width: 480px) { .dev-stats { grid-template-columns: 1fr; } }
 
     nav.open .nav-links a { font-size: 1.1rem; }
 
@@ -2174,23 +2256,35 @@
     <div class="dev-stats reveal">
       <div class="dev-stat">
         <span class="dev-stat-num" data-count="70">0</span>
-        <span class="dev-stat-lbl">Kursów i szkoleń</span>
-        <span class="dev-stat-sub">i konferencji</span>
-      </div>
-      <div class="dev-stat">
-        <span class="dev-stat-num" data-count="7">0</span>
-        <span class="dev-stat-lbl">Lat doskonalenia</span>
+        <span class="dev-stat-lbl">Ukończonych kursów i szkoleń</span>
         <span class="dev-stat-sub">2018 – 2025</span>
       </div>
-      <div class="dev-stat">
-        <span class="dev-stat-num" data-count="4">0</span>
-        <span class="dev-stat-lbl">Konferencje</span>
-        <span class="dev-stat-sub">krajowe i międzynarodowe</span>
+    </div>
+
+    <!-- WYKSZTAŁCENIE -->
+    <div class="edu-section reveal">
+      <div class="edu-label">
+        <div class="label">Wykształcenie</div>
       </div>
-      <div class="dev-stat">
-        <span class="dev-stat-num" data-count="5">0</span>
-        <span class="dev-stat-lbl">Głównych specjalizacji</span>
-        <span class="dev-stat-sub">karmienie · laktacja · neurologia · mioterapia · afazja</span>
+      <div class="edu-grid">
+        <div class="edu-card">
+          <div class="edu-year">2020 – 2022</div>
+          <div class="edu-body">
+            <div class="edu-degree">Neurologopedia kliniczna z wczesną interwencją logopedyczną</div>
+            <div class="edu-type">Studia podyplomowe</div>
+            <div class="edu-school">Uniwersytet Medyczny im. Piastów Śląskich we Wrocławiu</div>
+          </div>
+          <div class="edu-badge">✦ Dyplom</div>
+        </div>
+        <div class="edu-card">
+          <div class="edu-year">2016 – 2018</div>
+          <div class="edu-body">
+            <div class="edu-degree">Logopedia</div>
+            <div class="edu-type">Studia podyplomowe</div>
+            <div class="edu-school">Uniwersytet Marii Curie-Skłodowskiej w Lublinie</div>
+          </div>
+          <div class="edu-badge">✦ Dyplom</div>
+        </div>
       </div>
     </div>
 
