@@ -1682,6 +1682,192 @@
 
     .nav.scrolled .nav-logo-title { color: var(--gold); }
 
+    /* ══ ROZWÓJ ZAWODOWY ══ */
+    .dev-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin-bottom: 3.5rem;
+    }
+    .dev-stat {
+      background: var(--paper);
+      padding: 1.8rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+      transition: background 0.25s;
+    }
+    .dev-stat:hover { background: var(--mist); }
+    .dev-stat-num {
+      font-family: var(--serif);
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: var(--forest);
+      line-height: 1;
+    }
+    .dev-stat-lbl {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .dev-stat-sub { font-size: 0.75rem; color: var(--gold); margin-top: 0.2rem; }
+    .dev-toggle-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 2.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border);
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .dev-toggle-title { font-family: var(--serif); font-size: 1.15rem; color: var(--forest); }
+    .dev-toggle-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--forest);
+      background: var(--paper);
+      border: 1px solid var(--border);
+      padding: 0.7rem 1.4rem;
+      cursor: pointer;
+      transition: all 0.25s;
+    }
+    .dev-toggle-btn:hover { border-color: var(--gold); color: var(--gold); }
+    .dev-toggle-icon { display: inline-block; transition: transform 0.35s var(--ease); }
+    .dev-toggle-btn.active .dev-toggle-icon { transform: rotate(180deg); }
+    .dev-timeline { position: relative; }
+    .dev-timeline::before {
+      content: '';
+      position: absolute;
+      top: 0; bottom: 0;
+      left: 80px;
+      width: 1px;
+      background: linear-gradient(to bottom, transparent 0%, var(--border) 4%, var(--border) 96%, transparent 100%);
+    }
+    .dev-year-block { display: grid; grid-template-columns: 80px 1fr; gap: 0; }
+    .dev-year-block.hidden { display: none; }
+    .dev-year-left {
+      padding: 2rem 1.2rem 2rem 0;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      position: relative;
+    }
+    .dev-year-left::after {
+      content: '';
+      position: absolute;
+      top: 2.6rem;
+      right: -5px;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--gold);
+      border: 2px solid var(--warm);
+      box-shadow: 0 0 0 1px var(--gold);
+    }
+    .dev-year-num {
+      font-family: var(--serif);
+      font-size: 1.35rem;
+      font-weight: 900;
+      color: var(--forest);
+      line-height: 1;
+      opacity: 0.3;
+      transition: opacity 0.25s;
+    }
+    .dev-year-block:hover .dev-year-num { opacity: 1; }
+    .dev-year-count {
+      font-family: var(--mono);
+      font-size: 0.52rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-top: 0.3rem;
+      opacity: 0.8;
+      text-align: right;
+    }
+    .dev-year-right {
+      padding: 1.5rem 0 1.5rem 2.5rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+    }
+    .dev-year-block:last-child .dev-year-right { border-bottom: none; }
+    .dev-item {
+      display: flex;
+      gap: 0.9rem;
+      align-items: flex-start;
+      padding: 0.9rem 1.1rem;
+      background: var(--paper);
+      border: 1px solid var(--border);
+      transition: border-color 0.25s, transform 0.2s, box-shadow 0.2s;
+    }
+    .dev-item:hover { border-color: var(--gold); transform: translateX(3px); box-shadow: 0 3px 16px rgba(196,168,130,0.15); }
+    .dev-item-num {
+      font-family: var(--mono);
+      font-size: 0.58rem;
+      color: var(--gold);
+      opacity: 0.6;
+      flex-shrink: 0;
+      margin-top: 3px;
+      min-width: 22px;
+    }
+    .dev-item-body { flex: 1; min-width: 0; }
+    .dev-item-name { font-size: 0.88rem; font-weight: 500; color: var(--forest); line-height: 1.45; margin-bottom: 0.2rem; }
+    .dev-item-meta { font-size: 0.75rem; color: var(--muted); line-height: 1.4; }
+    .dev-item-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-top: 0.45rem; }
+    .dev-tag {
+      font-family: var(--mono);
+      font-size: 0.56rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.16rem 0.45rem;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      background: var(--mist);
+      white-space: nowrap;
+    }
+    .dev-tag.cert { color: var(--forest); border-color: rgba(125,59,79,0.25); background: rgba(125,59,79,0.07); font-weight: 500; }
+    .dev-tag.conf { color: var(--gold); border-color: var(--border); background: var(--gold-xl); }
+    .dev-expand-wrap { margin-top: 2rem; display: flex; flex-direction: column; align-items: center; gap: 0.7rem; }
+    .dev-expand-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.7rem;
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--forest);
+      background: var(--paper);
+      border: 1px solid var(--border);
+      padding: 0.85rem 2rem;
+      cursor: pointer;
+      transition: all 0.25s;
+    }
+    .dev-expand-btn:hover { border-color: var(--gold); color: var(--gold); background: var(--gold-xl); }
+    .dev-expand-btn.hidden { display: none; }
+    .dev-expand-hint { font-size: 0.78rem; color: var(--muted); }
+    @media (max-width: 768px) {
+      .dev-stats { grid-template-columns: 1fr 1fr; }
+      .dev-timeline::before { left: 0; }
+      .dev-year-block { grid-template-columns: 1fr; }
+      .dev-year-left { flex-direction: row; align-items: center; gap: 0.8rem; padding: 1.2rem 0 0.4rem; }
+      .dev-year-left::after { display: none; }
+      .dev-year-right { padding: 0.5rem 0 1.5rem 1rem; border-left: 2px solid var(--border); margin-left: 0.5rem; }
+      .dev-toggle-bar { flex-direction: column; align-items: flex-start; }
+    }
+    @media (max-width: 480px) { .dev-stats { grid-template-columns: 1fr; } }
+
     nav.open .nav-links a { font-size: 1.1rem; }
 
     /* ── ZAKŁADKI WIZYTY ── */
@@ -1784,6 +1970,7 @@
   </a>
   <ul class="nav-links" id="navLinks">
     <li><a href="#o-mnie">O mnie</a></li>
+    <li><a href="#rozwoj">Rozwój</a></li>
     <li><a href="#uslugi">Usługi</a></li>
     <li><a href="#cennik">Cennik</a></li>
     <li><a href="#opinie">Opinie</a></li>
@@ -1846,7 +2033,7 @@
   <div class="hero-r">
     <!-- EDIT: zamień na własne zdjęcie terapeutki -->
     <img
-      src="img/katarzyna2.jpg"
+      src="https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?w=1000&q=90&auto=format&fit=crop"
       alt="mgr Katarzyna Puchała neurologopeda kliniczny Kielce Bilcza – terapia karmienia niemowląt"
       loading="eager"
     />
@@ -1903,7 +2090,7 @@
           <!-- EDIT: zamień na własne zdjęcie (proporcje 3:4) -->
           <img
             class="about-img-main"
-            src="img/katarzyna.jpg"
+            src="https://images.unsplash.com/photo-1651008376811-b90baee60c1f?w=800&q=85&auto=format&fit=crop"
             alt="mgr Katarzyna Puchała neurologopeda Bilcza Kielce"
           />
           <!-- EDIT: zamień na zdjęcie gabinetu lub detalu pracy -->
@@ -1974,6 +2161,185 @@
   </div>
 </div>
 
+<!-- ══ ROZWÓJ ZAWODOWY ══ -->
+<div class="section" id="rozwoj" style="background:var(--warm);">
+  <div class="wrap">
+
+    <div class="reveal">
+      <div class="label">Kwalifikacje</div>
+      <h2 class="title">Stale się rozwijam</h2>
+      <p class="subtitle">Systematyczne doskonalenie warsztatu terapeutycznego — certyfikowane kursy, szkolenia, konferencje i uprawnienia zdobywane od 2018 roku.</p>
+    </div>
+
+    <div class="dev-stats reveal">
+      <div class="dev-stat">
+        <span class="dev-stat-num" data-count="70">0</span>
+        <span class="dev-stat-lbl">Kursów i szkoleń</span>
+        <span class="dev-stat-sub">i konferencji</span>
+      </div>
+      <div class="dev-stat">
+        <span class="dev-stat-num" data-count="7">0</span>
+        <span class="dev-stat-lbl">Lat doskonalenia</span>
+        <span class="dev-stat-sub">2018 – 2025</span>
+      </div>
+      <div class="dev-stat">
+        <span class="dev-stat-num" data-count="4">0</span>
+        <span class="dev-stat-lbl">Konferencje</span>
+        <span class="dev-stat-sub">krajowe i międzynarodowe</span>
+      </div>
+      <div class="dev-stat">
+        <span class="dev-stat-num" data-count="5">0</span>
+        <span class="dev-stat-lbl">Głównych specjalizacji</span>
+        <span class="dev-stat-sub">karmienie · laktacja · neurologia · mioterapia · afazja</span>
+      </div>
+    </div>
+
+    <div class="dev-toggle-bar reveal">
+      <span class="dev-toggle-title">Historia szkoleń według lat</span>
+      <button class="dev-toggle-btn" id="devToggleBtn">
+        Pokaż historię <span class="dev-toggle-icon">▾</span>
+      </button>
+    </div>
+
+    <div class="dev-timeline" id="devTimeline" style="display:none; overflow:hidden;">
+
+      <!-- 2025 -->
+      <div class="dev-year-block">
+        <div class="dev-year-left"><div class="dev-year-num">2025</div><div class="dev-year-count">8 szkoleń</div></div>
+        <div class="dev-year-right">
+          <div class="dev-item"><span class="dev-item-num">70</span><div class="dev-item-body"><div class="dev-item-name">Klub fundacji „Specjaliści dzieciom" – kwartał 2025</div><div class="dev-item-meta">Agnieszka Browarska, Karolina Morze, Aleksandra Gładyś-Jakubczyk, Marcelina Żółtowska, dr Agnieszka Ptak, Agata Aleksandrowicz · 08.06–13.12.2025</div><div class="dev-item-tags"><span class="dev-tag">Laktacja</span><span class="dev-tag">Wcześniak</span><span class="dev-tag">Karmienie</span></div></div></div>
+          <div class="dev-item"><span class="dev-item-num">69</span><div class="dev-item-body"><div class="dev-item-name">Kurs Laktacyjny Master Class 95h — tytuł Konsultanta Laktacyjnego (ścieżka IBCLC)</div><div class="dev-item-meta">Uzyskanie kompetencji udzielania świadczeń laktacyjnych</div><div class="dev-item-tags"><span class="dev-tag cert">✦ Certyfikat</span><span class="dev-tag">Laktacja</span><span class="dev-tag">IBCLC</span></div></div></div>
+          <div class="dev-item"><span class="dev-item-num">68</span><div class="dev-item-body"><div class="dev-item-name">Międzynarodowa Konferencja Prolacta</div><div class="dev-item-meta">18.10.2025</div><div class="dev-item-tags"><span class="dev-tag conf">Konferencja</span><span class="dev-tag">Laktacja</span></div></div></div>
+          <div class="dev-item"><span class="dev-item-num">67</span><div class="dev-item-body"><div class="dev-item-name">Zaburzenia połykania – podstawy diagnozy, terapii i wsparcie w życiu codziennym</div><div class="dev-item-meta">dr Ewa Winnicka · 12–13.07.2025</div><div class="dev-item-tags"><span class="dev-tag">Dysfagia</span><span class="dev-tag">Diagnoza</span></div></div></div>
+          <div class="dev-item"><span class="dev-item-num">66</span><div class="dev-item-body"><div class="dev-item-name">II Ogólnopolska Konferencja Logopedii Klinicznej</div><div class="dev-item-meta">Warszawa · 07.06.2025</div><div class="dev-item-tags"><span class="dev-tag conf">Konferencja</span><span class="dev-tag">Logopedia kliniczna</span></div></div></div>
+          <div class="dev-item"><span class="dev-item-num">65</span><div class="dev-item-body"><div class="dev-item-name">Od wady zgryzu do dysfunkcji narządowych i mięśniowo-szkieletowych. Diagnostyka funkcjonalna i terapia manualna dzieci i dorosłych</div><div class="dev-item-meta">dr Marian Majchrzycki D.O. · 24–25.05.2025</div><div class="dev-item-tags"><span class="dev-tag">Terapia manualna</span><span class="dev-tag">Zgryz</span></div></div></div>
+          <div class="dev-item"><span class="dev-item-num">64</span><div class="dev-item-body"><div class="dev-item-name">Manipulacje czaszki w pediatrii i neonatologii – funkcjonalna terapia posturalna</div><div class="dev-item-meta">mgr Aneta Szczepańska-Rybak D.O. · 26–27.04.2025</div><div class="dev-item-tags"><span class="dev-tag">Pediatria</span><span class="dev-tag">Neonatologia</span></div></div></div>
+          <div class="dev-item"><span class="dev-item-num">63</span><div class="dev-item-body"><div class="dev-item-name">Międzynarodowa Konferencja Naukowa online – Laktacyjny MasterClass 2025</div><div class="dev-item-meta">15–16.01.2025</div><div class="dev-item-tags"><span class="dev-tag conf">Konferencja</span><span class="dev-tag">Laktacja</span></div></div></div>
+        </div>
+      </div>
+
+      <!-- 2024 -->
+      <div class="dev-year-block">
+        <div class="dev-year-left"><div class="dev-year-num">2024</div><div class="dev-year-count">8 szkoleń</div></div>
+        <div class="dev-year-right">
+          <div class="dev-item"><span class="dev-item-num">62</span><div class="dev-item-body"><div class="dev-item-name">Klub fundacji „Specjaliści dzieciom" – kwartał IV</div><div class="dev-item-meta">Dieta mamy i dziecka, Wyzwania orofacjalne w karmieniu piersią, Ontogeneza 0–3 m · 01.10–17.12.2024</div><div class="dev-item-tags"><span class="dev-tag">Laktacja</span><span class="dev-tag">Orofacjalna</span></div></div></div>
+          <div class="dev-item"><span class="dev-item-num">61</span><div class="dev-item-body"><div class="dev-item-name">PUMO – Program usprawniania motoryki oralnej</div><div class="dev-item-meta">dr Marzena Machoś · 16.07.2024</div><div class="dev-item-tags"><span class="dev-tag cert">✦ Program</span><span class="dev-tag">Motoryka oralna</span></div></div></div>
+          <div class="dev-item"><span class="dev-item-num">60</span><div class="dev-item-body"><div class="dev-item-name">Klub fundacji „Specjaliści dzieciom" – kwartał III</div><div class="dev-item-meta">Regulacja laktacji, Alergia – diagnostyka i postępowanie · 07.05–09.07.2024</div><div class="dev-item-tags"><span class="dev-tag">Laktacja</span><span class="dev-tag">Alergia</span></div></div></div>
+          <div class="dev-item"><span class="dev-item-num">59</span><div class="dev-item-body"><div class="dev-item-name">Przyrosty masy ciała – warsztat praktyczny</div><div class="dev-item-meta">lek. Agnieszka Browarska IBCLC · 31.05.2024</div><div class="dev-item-tags"><span class="dev-tag">Niemowlę</span><span class="dev-tag">Karmienie</span></div></div></div>
+          <div class="dev-item"><span class="dev-item-num">58</span><div class="dev-item-body"><div class="dev-item-name">Odruchy noworodkowe</div><div class="dev-item-meta">lek. Agnieszka Browarska · 18.04.2024</div><div class="dev-item-tags"><span class="dev-tag">Noworodek</span><span class="dev-tag">Odruchy</span></div></div></div>
+          <div class="dev-item"><span class="dev-item-num">57</span><div class="dev-item-body"><div class="dev-item-name">Seminarium laktacyjne</div><div class="dev-item-meta">Estera Michalak, Paulina Kasprzyk · Kielce, 12.04.2024</div><div class="dev-item-tags"><span class="dev-tag">Laktacja</span></div></div></div>
+          <div class="dev-item"><span class="dev-item-num">56</span><div class="dev-item-body"><div class="dev-item-name">Dokarmianie – warsztat praktyczny dla specjalistów</div><div class="dev-item-meta">lek. Agnieszka Browarska · 01.04.2024</div><div class="dev-item-tags"><span class="dev-tag">Karmienie</span><span class="dev-tag">Niemowlę</span></div></div></div>
+          <div class="dev-item"><span class="dev-item-num">55</span><div class="dev-item-body"><div class="dev-item-name">Klub fundacji „Specjaliści dzieciom" – kwartał II</div><div class="dev-item-meta">Problemy brzuszkowe, SIDA, Refluks (GER/GERD), Case Study · 06.02–23.04.2024</div><div class="dev-item-tags"><span class="dev-tag">Laktacja</span><span class="dev-tag">Refluks</span></div></div></div>
+        </div>
+      </div>
+
+      <!-- 2023 -->
+      <div class="dev-year-block">
+        <div class="dev-year-left"><div class="dev-year-num">2023</div><div class="dev-year-count">12 szkoleń</div></div>
+        <div class="dev-year-right">
+          <div class="dev-item"><span class="dev-item-num">54</span><div class="dev-item-body"><div class="dev-item-name">Klub fundacji „Specjaliści dzieciom" – kwartał I 2023/2024</div><div class="dev-item-meta">Sen a karmienie piersią, Ssanie a praca mięśni brzucha, Rany brodawek · lek. Agnieszka Browarska IBCLC i in.</div><div class="dev-item-tags"><span class="dev-tag">Laktacja</span><span class="dev-tag">Karmienie</span></div></div></div>
+          <div class="dev-item"><span class="dev-item-num">53</span><div class="dev-item-body"><div class="dev-item-name">Niemowlak u logopedy 5 – Wsparcie ssania u niemowląt (pierś, butelka, zgłębnik, smoczek – Case Study)</div><div class="dev-item-meta">dr Danuta Kozłowska-Rup, dr Marzena Machoś · 09.12.2023</div><div class="dev-item-tags"><span class="dev-tag">Ssanie</span><span class="dev-tag">Niemowlę</span></div></div></div>
+          <div class="dev-item"><span class="dev-item-num">52</span><div class="dev-item-body"><div class="dev-item-name">Elastyczny Terapeutyczny Taping w logopedii / neurologopedii (podejście Esther de Ru)</div><div class="dev-item-meta">dr Martyna Brychcy · Kielce, 15–16.11.2023</div><div class="dev-item-tags"><span class="dev-tag cert">✦ Certyfikat</span><span class="dev-tag">Taping</span></div></div></div>
+          <div class="dev-item"><span class="dev-item-num">51</span><div class="dev-item-body"><div class="dev-item-name">Nerwy czaszkowe na start – ujęcie logopedyczne</div><div class="dev-item-meta">dr Kamila Czarnik · 02.10.2023</div><div class="dev-item-tags"><span class="dev-tag">Neurologia</span><span class="dev-tag">Diagnostyka</span></div></div></div>
+          <div class="dev-item"><span class="dev-item-num">50</span><div class="dev-item-body"><div class="dev-item-name">W jeden dzień dookoła ankyloglosji</div><div class="dev-item-meta">lek. Olga Iluk · 24.06.2023</div><div class="dev-item-tags"><span class="dev-tag">Ankyloglosja</span></div></div></div>
+          <div class="dev-item"><span class="dev-item-num">49</span><div class="dev-item-body"><div class="dev-item-name">Biomechanika ssania piersi</div><div class="dev-item-meta">lek. Agnieszka Browarska · 21.06.2023</div><div class="dev-item-tags"><span class="dev-tag">Laktacja</span><span class="dev-tag">Ssanie</span></div></div></div>
+          <div class="dev-item"><span class="dev-item-num">48</span><div class="dev-item-body"><div class="dev-item-name">Ocena anatomiczna i funkcjonalna jamy ustnej noworodków i niemowląt</div><div class="dev-item-meta">lek. Agnieszka Browarska · 31.05.2023</div><div class="dev-item-tags"><span class="dev-tag">Noworodek</span><span class="dev-tag">Diagnostyka</span></div></div></div>
+          <div class="dev-item"><span class="dev-item-num">47</span><div class="dev-item-body"><div class="dev-item-name">Neurogenoaspekt w diagnozie logopedycznej – małe dziecko</div><div class="dev-item-meta">dr Kamila Czarnik · 22.05.2023</div><div class="dev-item-tags"><span class="dev-tag">Neurologia</span><span class="dev-tag">Diagnoza</span></div></div></div>
+          <div class="dev-item"><span class="dev-item-num">46</span><div class="dev-item-body"><div class="dev-item-name">Jak wspierać dziecko i rodzica w procesie rozszerzania diety – kurs dla specjalistów</div><div class="dev-item-meta">Zuzanna Wędłowska, Marta Kostka · 24–25.03.2023</div><div class="dev-item-tags"><span class="dev-tag">Dieta</span><span class="dev-tag">Rozszerzanie</span></div></div></div>
+          <div class="dev-item"><span class="dev-item-num">45</span><div class="dev-item-body"><div class="dev-item-name">Praktycznie o pracy z językiem – na przykładzie pacjenta z makroglosją</div><div class="dev-item-meta">dr Kamila Czarnik · 19.02.2023</div><div class="dev-item-tags"><span class="dev-tag">Terapia</span><span class="dev-tag">Język</span></div></div></div>
+          <div class="dev-item"><span class="dev-item-num">44</span><div class="dev-item-body"><div class="dev-item-name">Cechy dysmorficzne jamy ustnej w diagnozie logopedycznej – przegląd pacjentów cz. I</div><div class="dev-item-meta">dr Kamila Czarnik · 2023</div><div class="dev-item-tags"><span class="dev-tag">Diagnostyka</span><span class="dev-tag">Dysmorfologia</span></div></div></div>
+          <div class="dev-item"><span class="dev-item-num">43</span><div class="dev-item-body"><div class="dev-item-name">Seplenienie międzyzębowe</div><div class="dev-item-meta">dr Agnieszka Banaszkiewicz · 08.01.2023</div><div class="dev-item-tags"><span class="dev-tag">Artykulacja</span></div></div></div>
+        </div>
+      </div>
+
+      <!-- STARSZE LATA — ukryte -->
+
+      <!-- 2022 -->
+      <div class="dev-year-block hidden" data-old>
+        <div class="dev-year-left"><div class="dev-year-num">2022</div><div class="dev-year-count">9 szkoleń</div></div>
+        <div class="dev-year-right">
+          <div class="dev-item"><span class="dev-item-num">42</span><div class="dev-item-body"><div class="dev-item-name">Gryzienie niejedną ma twarz</div><div class="dev-item-meta">dr Ewa Winnicka · 29.12.2022</div><div class="dev-item-tags"><span class="dev-tag">Motoryka oralna</span></div></div></div>
+          <div class="dev-item"><span class="dev-item-num">41</span><div class="dev-item-body"><div class="dev-item-name">Karmienie piersią – vademecum logopedy</div><div class="dev-item-meta">dr n. med. Danuta Kozłowska-Rup · 10.12.2022</div><div class="dev-item-tags"><span class="dev-tag">Laktacja</span></div></div></div>
+          <div class="dev-item"><span class="dev-item-num">40</span><div class="dev-item-body"><div class="dev-item-name">Zależność struktury i funkcji w terapii logopedycznej</div><div class="dev-item-meta">dr Magdalena Czajkowska, mgr Magdalena Klimaszewska · Kraków, 5–6.11.2022</div><div class="dev-item-tags"><span class="dev-tag">Terapia</span></div></div></div>
+          <div class="dev-item"><span class="dev-item-num">39</span><div class="dev-item-body"><div class="dev-item-name">Terapia dzieci z uszkodzonym słuchem metodą werbo-tonalną – stopień I</div><div class="dev-item-meta">dr Anna Prożych · Wrocław, 21–22.05.2022</div><div class="dev-item-tags"><span class="dev-tag cert">✦ Certyfikat</span><span class="dev-tag">Słuch</span></div></div></div>
+          <div class="dev-item"><span class="dev-item-num">38</span><div class="dev-item-body"><div class="dev-item-name">Smoczek – vademecum logopedy</div><div class="dev-item-meta">dr Marzena Machoś · 06.04.2022</div><div class="dev-item-tags"><span class="dev-tag">Niemowlę</span></div></div></div>
+          <div class="dev-item"><span class="dev-item-num">37</span><div class="dev-item-body"><div class="dev-item-name">Mioterapia dzieci w wieku od 2 do 6 lat – część II</div><div class="dev-item-meta">mgr Maria Szyfter · 04.03.2022</div><div class="dev-item-tags"><span class="dev-tag">Mioterapia</span></div></div></div>
+          <div class="dev-item"><span class="dev-item-num">36</span><div class="dev-item-body"><div class="dev-item-name">Mioterapia dzieci w wieku od 2 do 6 lat</div><div class="dev-item-meta">mgr Maria Szyfter · 19.02.2022</div><div class="dev-item-tags"><span class="dev-tag">Mioterapia</span></div></div></div>
+          <div class="dev-item"><span class="dev-item-num">35</span><div class="dev-item-body"><div class="dev-item-name">Ocena funkcjonalna traktu ustno-twarzowego – mioterapia podejście autorskie</div><div class="dev-item-meta">mgr Ewelina Mendala-Kwoczek · Wrocław, 15–16.01.2022</div><div class="dev-item-tags"><span class="dev-tag">Mioterapia</span></div></div></div>
+          <div class="dev-item"><span class="dev-item-num">34</span><div class="dev-item-body"><div class="dev-item-name">Neurorehabilitacja RCM – metoda Rudolfo Castillo Moralesa, moduł I i II</div><div class="dev-item-meta">lic. Marianela Sol Pernuzzi · 12–19.01.2022</div><div class="dev-item-tags"><span class="dev-tag cert">✦ Certyfikat</span><span class="dev-tag">Neurorehabilitacja</span></div></div></div>
+        </div>
+      </div>
+
+      <!-- 2021 -->
+      <div class="dev-year-block hidden" data-old>
+        <div class="dev-year-left"><div class="dev-year-num">2021</div><div class="dev-year-count">13 szkoleń</div></div>
+        <div class="dev-year-right">
+          <div class="dev-item"><span class="dev-item-num">33</span><div class="dev-item-body"><div class="dev-item-name">Karmienie wcześniaka na oddziale neonatologicznym</div><div class="dev-item-meta">mgr Marta Karwot-Pięta, mgr Joanna Kupczak · Kraków, 20.11.2021</div><div class="dev-item-tags"><span class="dev-tag">Wcześniak</span><span class="dev-tag">Neonatologia</span></div></div></div>
+          <div class="dev-item"><span class="dev-item-num">32</span><div class="dev-item-body"><div class="dev-item-name">Terapeuta karmienia z pasją</div><div class="dev-item-meta">dr Jolanta Uchman, mgr Aleksandra Kaczyńska, mgr Agata Kalina · Warszawa, 08.2021</div><div class="dev-item-tags"><span class="dev-tag cert">✦ Certyfikat</span><span class="dev-tag">Karmienie</span></div></div></div>
+          <div class="dev-item"><span class="dev-item-num">31</span><div class="dev-item-body"><div class="dev-item-name">Terapeuta orofacjalny z pasją</div><div class="dev-item-meta">mgr Marcelina Przeździęk, mgr Aleksandra Kaczyńska · Warszawa, 08.2021</div><div class="dev-item-tags"><span class="dev-tag cert">✦ Certyfikat</span><span class="dev-tag">Orofacjalna</span></div></div></div>
+          <div class="dev-item"><span class="dev-item-num">30</span><div class="dev-item-body"><div class="dev-item-name">Trener i coach w organizacji medycznej</div><div class="dev-item-meta">Process Team · Warszawa, 08.2021</div><div class="dev-item-tags"><span class="dev-tag cert">✦ Certyfikat</span><span class="dev-tag">Coaching</span></div></div></div>
+          <div class="dev-item"><span class="dev-item-num">29</span><div class="dev-item-body"><div class="dev-item-name">Terapia funkcji poznawczych w wieku senioralnym w ujęciu logopedycznym</div><div class="dev-item-meta">dr Paulina Wójcik-Topór · Kraków, 19.07.2021</div><div class="dev-item-tags"><span class="dev-tag">Senior</span><span class="dev-tag">Kognitywna</span></div></div></div>
+          <div class="dev-item"><span class="dev-item-num">28</span><div class="dev-item-body"><div class="dev-item-name">Ssanie kciuka okiem neurologopedy</div><div class="dev-item-meta">mgr Marcelina Przeździęk · Warszawa, 13.07.2021</div><div class="dev-item-tags"><span class="dev-tag">Niemowlę</span><span class="dev-tag">Ssanie</span></div></div></div>
+          <div class="dev-item"><span class="dev-item-num">27</span><div class="dev-item-body"><div class="dev-item-name">Terapia logopedyczna pacjenta po ciężkim urazie neurologicznym</div><div class="dev-item-meta">dr Paulina Wójcik-Topór · Kraków, 09.07.2021</div><div class="dev-item-tags"><span class="dev-tag">Neurologia</span><span class="dev-tag">Uraz</span></div></div></div>
+          <div class="dev-item"><span class="dev-item-num">26</span><div class="dev-item-body"><div class="dev-item-name">Cyfrowa narzędziownia logopedy</div><div class="dev-item-meta">mgr Dorota Boras-Pociask · Bydgoszcz, 11.05.2021</div><div class="dev-item-tags"><span class="dev-tag">Cyfrowe</span></div></div></div>
+          <div class="dev-item"><span class="dev-item-num">25</span><div class="dev-item-body"><div class="dev-item-name">Zaburzenia integracji sensorycznej – i co dalej?</div><div class="dev-item-meta">mgr Aleksandra Charęzińska · Warszawa, 23.05.2021</div><div class="dev-item-tags"><span class="dev-tag">SI</span></div></div></div>
+          <div class="dev-item"><span class="dev-item-num">24</span><div class="dev-item-body"><div class="dev-item-name">Karmienie terapeutyczne Human Touch</div><div class="dev-item-meta">mgr Monika Habik · 2021</div><div class="dev-item-tags"><span class="dev-tag cert">✦ Certyfikat</span><span class="dev-tag">Karmienie</span></div></div></div>
+          <div class="dev-item"><span class="dev-item-num">23</span><div class="dev-item-body"><div class="dev-item-name">Diagnoza neurologiczna dziecka 0–12 m.ż.</div><div class="dev-item-meta">dr Mira Rządzka · 11–12.12.2021</div><div class="dev-item-tags"><span class="dev-tag">Neurologia</span><span class="dev-tag">Niemowlę</span></div></div></div>
+          <div class="dev-item"><span class="dev-item-num">22</span><div class="dev-item-body"><div class="dev-item-name">Terapia ustno-twarzowa</div><div class="dev-item-meta">dr Anna Regner · 12–13.06.2021</div><div class="dev-item-tags"><span class="dev-tag cert">✦ Certyfikat</span><span class="dev-tag">Ustno-twarzowa</span></div></div></div>
+          <div class="dev-item"><span class="dev-item-num">21</span><div class="dev-item-body"><div class="dev-item-name">Terapia logopedyczna dziecka z rzadkimi wadami genetycznymi</div><div class="dev-item-meta">dr Teresa Kaczan · Wrocław, 5–6.06.2021</div><div class="dev-item-tags"><span class="dev-tag">Genetyka</span></div></div></div>
+        </div>
+      </div>
+
+      <!-- 2020 -->
+      <div class="dev-year-block hidden" data-old>
+        <div class="dev-year-left"><div class="dev-year-num">2020</div><div class="dev-year-count">11 szkoleń</div></div>
+        <div class="dev-year-right">
+          <div class="dev-item"><span class="dev-item-num">20</span><div class="dev-item-body"><div class="dev-item-name">Diagnoza i terapia zaburzeń mowy w przebiegu chorób OUN i neurodegeneracyjnych</div><div class="dev-item-meta">prof. dr hab. Jolanta Panasiuk · Wrocław, styczeń–marzec 2020</div><div class="dev-item-tags"><span class="dev-tag">OUN</span><span class="dev-tag">Neurodegeneracyjne</span></div></div></div>
+          <div class="dev-item"><span class="dev-item-num">19</span><div class="dev-item-body"><div class="dev-item-name">Trening umiejętności społecznych (TUS)</div><div class="dev-item-meta">mgr Barbara Olszewska, mgr Olimpia Szarapow-Foit · Radom, 24.10.2020</div><div class="dev-item-tags"><span class="dev-tag cert">✦ Kurs</span><span class="dev-tag">TUS</span></div></div></div>
+          <div class="dev-item"><span class="dev-item-num">18</span><div class="dev-item-body"><div class="dev-item-name">Zachowania trudne u dzieci i młodzieży z zaburzeniami w rozwoju z perspektywy integracji sensorycznej</div><div class="dev-item-meta">Warszawa, 04.08.2020</div><div class="dev-item-tags"><span class="dev-tag">SI</span><span class="dev-tag">Zachowanie</span></div></div></div>
+          <div class="dev-item"><span class="dev-item-num">17</span><div class="dev-item-body"><div class="dev-item-name">Ankyloglosja – krótkie wędzidełko języka</div><div class="dev-item-meta">mgr Aleksandra Rosińska · 22.07.2020</div><div class="dev-item-tags"><span class="dev-tag">Ankyloglosja</span></div></div></div>
+          <div class="dev-item"><span class="dev-item-num">16</span><div class="dev-item-body"><div class="dev-item-name">Diagnoza i terapia osób dorosłych z afazją</div><div class="dev-item-meta">dr Anna Siudak · Kraków, 08.07.2020</div><div class="dev-item-tags"><span class="dev-tag">Afazja</span><span class="dev-tag">Dorośli</span></div></div></div>
+          <div class="dev-item"><span class="dev-item-num">15</span><div class="dev-item-body"><div class="dev-item-name">Zmysły w czasach nadmiaru – co warto wiedzieć o przestymulowaniu</div><div class="dev-item-meta">mgr Aleksandra Charęzińska · Warszawa, 17.06.2020</div><div class="dev-item-tags"><span class="dev-tag">SI</span></div></div></div>
+          <div class="dev-item"><span class="dev-item-num">13</span><div class="dev-item-body"><div class="dev-item-name">Programowanie języka u osób dorosłych z afazją</div><div class="dev-item-meta">dr Anna Siudak · Kraków, 15.05.2020</div><div class="dev-item-tags"><span class="dev-tag">Afazja</span><span class="dev-tag">Dorośli</span></div></div></div>
+          <div class="dev-item"><span class="dev-item-num">12</span><div class="dev-item-body"><div class="dev-item-name">Ortodoncja dla logopedów – diagnoza i terapia funkcji kompleksu ustno-twarzowego</div><div class="dev-item-meta">mgr Aleksandra Listwoń · Stara Wieś, 04.04.2020</div><div class="dev-item-tags"><span class="dev-tag">Ortodoncja</span></div></div></div>
+          <div class="dev-item"><span class="dev-item-num">11</span><div class="dev-item-body"><div class="dev-item-name">Wspieranie rozwoju Integracji Sensorycznej w warunkach przedszkolnych i domowych</div><div class="dev-item-meta">mgr Bogna Mikołajczak · Skarżysko-Kamienna, 29.02.2020</div><div class="dev-item-tags"><span class="dev-tag">SI</span></div></div></div>
+          <div class="dev-item"><span class="dev-item-num">10</span><div class="dev-item-body"><div class="dev-item-name">Nie współdziała, nie mówi – o początkach terapii dziecka z autyzmem</div><div class="dev-item-meta">dr Marzena Błasik-Tytuła · Skarżysko-Kamienna, 29.02.2020</div><div class="dev-item-tags"><span class="dev-tag">Autyzm</span></div></div></div>
+          <div class="dev-item"><span class="dev-item-num">9</span><div class="dev-item-body"><div class="dev-item-name">Guguhopla od zabawy do mówienia – od samogłoski do zdania obrazkowo-literowego</div><div class="dev-item-meta">dr Marzena Machoś · Kielce, 01.03.2020</div><div class="dev-item-tags"><span class="dev-tag">Mowa</span></div></div></div>
+        </div>
+      </div>
+
+      <!-- 2019 -->
+      <div class="dev-year-block hidden" data-old>
+        <div class="dev-year-left"><div class="dev-year-num">2019</div><div class="dev-year-count">7 szkoleń</div></div>
+        <div class="dev-year-right">
+          <div class="dev-item"><span class="dev-item-num">8</span><div class="dev-item-body"><div class="dev-item-name">Mutyzm wybiórczy w ujęciu praktycznym</div><div class="dev-item-meta">mgr Monika Cabała · Kraków, 29.09.2019</div><div class="dev-item-tags"><span class="dev-tag">Mutyzm</span></div></div></div>
+          <div class="dev-item"><span class="dev-item-num">7</span><div class="dev-item-body"><div class="dev-item-name">Diagnoza i terapia autyzmu</div><div class="dev-item-meta">mgr Magdalena Kosiń · Warszawa, 25.08.2019</div><div class="dev-item-tags"><span class="dev-tag">Autyzm</span></div></div></div>
+          <div class="dev-item"><span class="dev-item-num">6</span><div class="dev-item-body"><div class="dev-item-name">Wpływ zaburzeń przetwarzania sensorycznego na rozwój mowy</div><div class="dev-item-meta">mgr Magdalena Kosiń · Warszawa, 24.08.2019</div><div class="dev-item-tags"><span class="dev-tag">SI</span><span class="dev-tag">Mowa</span></div></div></div>
+          <div class="dev-item"><span class="dev-item-num">5</span><div class="dev-item-body"><div class="dev-item-name">Diagnoza i leczenie zaburzeń stawów skroniowo-żuchwowych w praktyce logopedy i neurologopedy</div><div class="dev-item-meta">mgr Damian Stucki D.O. · Szczecin, 30.05.2019</div><div class="dev-item-tags"><span class="dev-tag">SSŻ</span></div></div></div>
+          <div class="dev-item"><span class="dev-item-num">4</span><div class="dev-item-body"><div class="dev-item-name">Szkolenie uprawniające do wykorzystania testu KOLD – Karta Oceny Logopedycznej Dziecka</div><div class="dev-item-meta">dr Joanna Gruba · Warszawa, 30.03.2019 · nr 21702019/KOLD</div><div class="dev-item-tags"><span class="dev-tag cert">✦ Uprawnienie</span><span class="dev-tag">KOLD</span></div></div></div>
+          <div class="dev-item"><span class="dev-item-num">3</span><div class="dev-item-body"><div class="dev-item-name">Smykopląsy – kreatywne warsztaty logorytmiczne</div><div class="dev-item-meta">Katarzyna Stempień · Warszawa, 23.03.2019</div><div class="dev-item-tags"><span class="dev-tag">Logorytmika</span></div></div></div>
+        </div>
+      </div>
+
+      <!-- 2018 -->
+      <div class="dev-year-block hidden" data-old>
+        <div class="dev-year-left"><div class="dev-year-num">2018</div><div class="dev-year-count">2 szkolenia</div></div>
+        <div class="dev-year-right">
+          <div class="dev-item"><span class="dev-item-num">2</span><div class="dev-item-body"><div class="dev-item-name">MFT 9–99 sTArs – Miofunkcjonalna terapia dla osób w wieku 9–99 lat ze specjalną terapią artykulacji s/sz wg A. Kittel</div><div class="dev-item-meta">Barbara Paradowska · Wrocław, 22–23.09.2018</div><div class="dev-item-tags"><span class="dev-tag cert">✦ Certyfikat</span><span class="dev-tag">MFT</span></div></div></div>
+          <div class="dev-item"><span class="dev-item-num">1</span><div class="dev-item-body"><div class="dev-item-name">Fizjologiczna metoda terapii zaburzeń ustnej fazy połykania i oddychania u dzieci od 3–4 roku życia z dyslalią obwodową</div><div class="dev-item-meta">prof. dr hab. Danuta Pluta-Wojciechowska · Lublin, 01.07.2018</div><div class="dev-item-tags"><span class="dev-tag">Połykanie</span><span class="dev-tag">Oddychanie</span></div></div></div>
+        </div>
+      </div>
+
+      <!-- EXPAND -->
+      <div class="dev-expand-wrap" id="devExpandWrap">
+        <button class="dev-expand-btn" id="devExpandBtn">▾ Pokaż lata 2018–2022</button>
+        <span class="dev-expand-hint">jeszcze 5 lat historii · 42 szkolenia</span>
+      </div>
+
+    </div><!-- end timeline -->
+  </div>
+</div>
+
 <!-- ══ PHOTO STRIP ══ -->
 <!-- EDIT: zamień src na własne zdjęcia gabinetu / terapii -->
 <div class="strip reveal">
@@ -1981,7 +2347,7 @@
     <img src="https://images.unsplash.com/photo-1609220136736-443140cffec6?w=800&q=85&auto=format&fit=crop" alt="Terapia karmienia niemowląt Kielce Bilcza" />
   </div>
   <div class="strip-item">
-    <img src="img/terapia.jpg" alt="Neurologopeda Katarzyna Puchała podczas pracy" />
+    <img src="https://images.unsplash.com/photo-1619451050621-83cb7aada2d7?w=600&q=80&auto=format&fit=crop" alt="Neurologopeda Katarzyna Puchała podczas pracy" />
   </div>
   <div class="strip-item">
     <img src="https://images.unsplash.com/photo-1548690312-e3b507d8c110?w=600&q=80&auto=format&fit=crop" alt="Gabinet neurologopedyczny Bilcza" />
@@ -2573,6 +2939,75 @@
       });
     });
   });
+
+  // Rozwój zawodowy — liczniki, toggle, expand
+  (function() {
+    let counted = false;
+    const counters = document.querySelectorAll('.dev-stat-num[data-count]');
+    const cObs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting && !counted) {
+          counted = true;
+          counters.forEach(el => {
+            const target = parseInt(el.dataset.count, 10);
+            const start = performance.now();
+            const dur = 1000;
+            function step(now) {
+              const p = Math.min((now - start) / dur, 1);
+              el.textContent = Math.floor((1 - Math.pow(1-p, 3)) * target);
+              if (p < 1) requestAnimationFrame(step);
+              else el.textContent = target;
+            }
+            requestAnimationFrame(step);
+          });
+        }
+      });
+    }, { threshold: 0.4 });
+    counters.forEach(c => cObs.observe(c));
+
+    const toggleBtn = document.getElementById('devToggleBtn');
+    const timeline  = document.getElementById('devTimeline');
+    if (toggleBtn && timeline) {
+      toggleBtn.addEventListener('click', () => {
+        const open = toggleBtn.classList.contains('active');
+        if (open) {
+          timeline.style.transition = 'opacity 0.4s ease';
+          timeline.style.opacity = '0';
+          setTimeout(() => { timeline.style.display = 'none'; timeline.style.opacity = ''; timeline.style.transition = ''; }, 420);
+          toggleBtn.classList.remove('active');
+          toggleBtn.innerHTML = 'Pokaż historię <span class="dev-toggle-icon">▾</span>';
+        } else {
+          timeline.style.display = 'block';
+          timeline.style.opacity = '0';
+          requestAnimationFrame(() => requestAnimationFrame(() => {
+            timeline.style.transition = 'opacity 0.5s ease';
+            timeline.style.opacity = '1';
+            setTimeout(() => { timeline.style.transition = ''; }, 520);
+          }));
+          toggleBtn.classList.add('active');
+          toggleBtn.innerHTML = 'Ukryj historię <span class="dev-toggle-icon">▾</span>';
+        }
+      });
+    }
+
+    const expandBtn  = document.getElementById('devExpandBtn');
+    const expandWrap = document.getElementById('devExpandWrap');
+    const oldBlocks  = document.querySelectorAll('.dev-year-block[data-old]');
+    if (expandBtn) {
+      expandBtn.addEventListener('click', () => {
+        oldBlocks.forEach((b, i) => {
+          b.classList.remove('hidden');
+          b.style.opacity = '0';
+          b.style.transform = 'translateY(14px)';
+          b.style.transition = `opacity 0.45s ${i * 0.07}s ease, transform 0.45s ${i * 0.07}s ease`;
+          requestAnimationFrame(() => requestAnimationFrame(() => { b.style.opacity = '1'; b.style.transform = 'none'; }));
+        });
+        expandWrap.style.transition = 'opacity 0.3s ease';
+        expandWrap.style.opacity = '0';
+        setTimeout(() => { expandWrap.style.display = 'none'; }, 320);
+      });
+    }
+  })();
 
   // No-JS fallback
   document.documentElement.classList.remove('no-js');
