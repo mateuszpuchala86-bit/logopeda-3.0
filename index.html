@@ -121,7 +121,7 @@
   <!-- FONTS -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;0,900;1,400;1,700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet" />
 
   <style>
     /* ═══════════════════════════════════════════
@@ -2126,7 +2126,7 @@
     <li><a href="#lokalizacja">Lokalizacja</a></li>
     <li><a href="#kontakt" class="nav-cta">Umów wizytę</a></li>
   </ul>
-  <button class="hamburger" id="hamburger" aria-label="Menu">
+  <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="navLinks">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -2738,37 +2738,37 @@
       <h2 class="title">Zaufanie budowane doświadczeniem</h2>
       <p class="subtitle">Zweryfikowane opinie rodzin z Kielc, Morawicy i okolic.</p>
     </div>
-    <!-- EDIT: opinie — zmień treść na prawdziwe opinie klientów -->
+    <!-- Prawdziwe opinie z Google (wizytówka Google Moja Firma) -->
     <div class="reviews-grid reveal">
       <div class="review">
         <div class="review-mark">"</div>
-        <p class="review-text">Bardzo profesjonalne i spokojne podejście do dziecka. Już po kilku spotkaniach widoczna ogromna poprawa. Pani Katarzyna rozwiała wszystkie nasze wątpliwości i obawy.</p>
+        <p class="review-text">Z czystym sumieniem mogę polecić wizytę u Pani Kasi. Pani Kasia posiada bardzo dużą wiedzę i doświadczenie, co widać w profesjonalnym podejściu do pacjenta. Wizyta przebiegła w komfortowej atmosferze. Zalecenia bardzo trafne, widzimy efekty terapii.</p>
         <div class="review-meta">
           <div class="review-av">👩</div>
           <div>
-            <div class="review-who">Mama 3-miesięcznego chłopca · Kielce</div>
+            <div class="review-who">Marta P. · Opinia z Google</div>
             <div class="review-stars">★★★★★</div>
           </div>
         </div>
       </div>
       <div class="review">
         <div class="review-mark">"</div>
-        <p class="review-text">Ogromna wiedza i cierpliwość. Czuliśmy się zaopiekowani od pierwszej wizyty. Nikt wcześniej tak dokładnie nie wyjaśnił nam co dolega naszemu synowi.</p>
+        <p class="review-text">Pani Kasia to neurologopeda z powołania. Profesjonalna diagnoza, indywidualne podejście i wspaniała atmosfera na zajęciach. Jesteśmy bardzo zadowoleni z efektów terapii.</p>
         <div class="review-meta">
           <div class="review-av">👨</div>
           <div>
-            <div class="review-who">Rodzice wcześniaka · okolice Morawicy</div>
+            <div class="review-who">Łukasz Karwowski · Opinia z Google</div>
             <div class="review-stars">★★★★★</div>
           </div>
         </div>
       </div>
       <div class="review">
         <div class="review-mark">"</div>
-        <p class="review-text">Najlepsza decyzja jako mama. Córka czuła się komfortowo od samego początku. Atmosfera gabinetu jest wyjątkowa — spokój i profesjonalizm w jednym.</p>
+        <p class="review-text">Polecam! Pani Kasia pomogła mojemu synowi w problemach z wędzidełkiem. Jestem bardzo zadowolona 😀 Pani Kasia ma bardzo dużą wiedzę, a do tego jest bardzo miła. Wizyta przebiegła w przyjaznej atmosferze.</p>
         <div class="review-meta">
           <div class="review-av">👩</div>
           <div>
-            <div class="review-who">Mama 2-letniej dziewczynki · Bilcza</div>
+            <div class="review-who">Agata P. · Opinia z Google</div>
             <div class="review-stars">★★★★★</div>
           </div>
         </div>
@@ -3055,9 +3055,15 @@
 
   // Mobile hamburger
   const hbg = document.getElementById('hamburger');
-  hbg.addEventListener('click', () => nav.classList.toggle('open'));
+  hbg.addEventListener('click', () => {
+    const open = nav.classList.toggle('open');
+    hbg.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
   document.querySelectorAll('.nav-links a').forEach(a => {
-    a.addEventListener('click', () => nav.classList.remove('open'));
+    a.addEventListener('click', () => {
+      nav.classList.remove('open');
+      hbg.setAttribute('aria-expanded', 'false');
+    });
   });
 
   // Scroll reveal — staggered for grids
