@@ -71,7 +71,7 @@
           { "@type": "AdministrativeArea", "name": "województwo świętokrzyskie" }
         ],
         "medicalSpecialty": "Neurologopedia",
-        "priceRange": "150–230 zł",
+        "priceRange": "100–230 zł",
         "openingHoursSpecification": [
           {
             "@type": "OpeningHoursSpecification",
@@ -836,17 +836,6 @@
 
     .cert:hover::before { transform: scaleX(1); }
 
-    .cert-dot {
-      width: 4px;
-      height: 4px;
-      border-radius: 50%;
-      background: var(--gold);
-      flex-shrink: 0;
-      margin-top: 1px;
-      /* ukrywamy — zastępujemy strukturą kolumnową */
-      display: none;
-    }
-
     /* tekst kafelka */
     .cert-text {
       font-size: 0.85rem;
@@ -863,15 +852,6 @@
       text-transform: uppercase;
       color: var(--gold);
       opacity: 0.7;
-    }
-
-    .cert-dot {
-      width: 5px;
-      height: 5px;
-      border-radius: 50%;
-      background: var(--gold);
-      flex-shrink: 0;
-      margin-top: 5px;
     }
 
     /* ═══════════════════════════════════════════
@@ -2106,11 +2086,15 @@
       class="nav-logo-img nav-logo-scrolled"
       src="img/symbol-burgund-transparent.png"
       alt="Logo Gabinet Neurologopedyczny Katarzyna Puchała"
+      width="1168"
+      height="275"
     />
     <img
       class="nav-logo-img nav-logo-top"
       src="img/symbol-krem-transparent.png"
       alt="Logo Gabinet Neurologopedyczny Katarzyna Puchała"
+      width="1168"
+      height="275"
     />
     <div class="nav-logo-text">
       <span class="nav-logo-name">Katarzyna Puchała</span>
@@ -2185,6 +2169,8 @@
       src="img/katarzyna2.jpg"
       alt="mgr Katarzyna Puchała neurologopeda kliniczny Kielce Bilcza – terapia karmienia niemowląt"
       loading="eager"
+      width="1536"
+      height="1024"
     />
     <div class="hero-r-overlay"></div>
 
@@ -2241,12 +2227,18 @@
             class="about-img-main"
             src="img/katarzyna.jpg"
             alt="mgr Katarzyna Puchała neurologopeda Bilcza Kielce"
+            width="1086"
+            height="1448"
+            loading="lazy"
           />
           <!-- EDIT: zamień na zdjęcie gabinetu lub detalu pracy -->
           <img
             class="about-img-accent"
             src="img/male.jpg"
             alt="Gabinet neurologopedyczny Bilcza"
+            width="1254"
+            height="1254"
+            loading="lazy"
           />
           <div class="about-num-badge">
             <!-- EDIT: lata doświadczenia -->
@@ -2505,13 +2497,13 @@
 <!-- EDIT: zamień src na własne zdjęcia gabinetu / terapii -->
 <div class="strip reveal">
   <div class="strip-item">
-    <img src="img/terapia.jpg" alt="Terapia karmienia niemowląt Kielce Bilcza" />
+    <img src="img/terapia.jpg" alt="Terapia karmienia niemowląt Kielce Bilcza" width="1248" height="832" loading="lazy" />
   </div>
   <div class="strip-item">
-    <img src="img/terapia2.jpg" alt="Neurologopeda Katarzyna Puchała podczas pracy" />
+    <img src="img/terapia2.jpg" alt="Neurologopeda Katarzyna Puchała podczas pracy" width="1141" height="1024" loading="lazy" />
   </div>
   <div class="strip-item">
-    <img src="img/terapia3.jpg" alt="Gabinet neurologopedyczny Bilcza" />
+    <img src="img/terapia3.jpg" alt="Gabinet neurologopedyczny Bilcza" width="1024" height="1536" loading="lazy" />
   </div>
 </div>
 
@@ -3036,7 +3028,7 @@
 <!-- ── COOKIE BANNER ── -->
 <div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Informacja o plikach cookie">
   <p class="cookie-text">
-    Ta strona używa plików cookie w celu prawidłowego działania formularza kontaktowego oraz analizy ruchu. Nie zbieramy danych bez Twojej zgody.
+    Ta strona używa plików cookie wyłącznie w celu prawidłowego działania formularza kontaktowego. Nie zbieramy danych bez Twojej zgody.
     <a href="polityka-prywatnosci.html">Polityka prywatności →</a>
   </p>
   <div class="cookie-btns">
