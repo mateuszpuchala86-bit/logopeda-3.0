@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Polityka Prywatności | mgr Katarzyna Puchała – Neurologopeda Kielce</title>
+  <meta name="description" content="Polityka prywatności i plików cookie gabinetu neurologopedycznego mgr Katarzyny Puchały. Bilcza, Kielce." />
+  <meta name="robots" content="noindex, follow" />
+  <link rel="canonical" href="https://logopeda-bilcza.vercel.app/polityka-prywatnosci.html" />
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon.png" />
+  <meta name="theme-color" content="#7d3b4f" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --forest:  #7d3b4f;
+      --pine:    #9a4d62;
+      --gold:    #c4a882;
+      --gold-l:  #d9c4a8;
+      --gold-xl: #f2e8dc;
+      --cream:   #faf6f1;
+      --warm:    #f5ede4;
+      --paper:   #fffcf8;
+      --ink:     #1a0e0e;
+      --text:    #1a0e0e;
+      --muted:   #7a6058;
+      --border:  rgba(196,168,130,0.2);
+      --serif:   'Playfair Display', Georgia, serif;
+      --sans:    'DM Sans', sans-serif;
+      --mono:    'DM Mono', monospace;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--cream);
+      color: var(--text);
+      font-family: var(--sans);
+      font-weight: 300;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* NAV */
+    nav {
+      background: var(--forest);
+      padding: 1.2rem 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      text-decoration: none;
+    }
+
+    .nav-logo img {
+      width: 38px;
+      height: 38px;
+      object-fit: contain;
+    }
+
+    .nav-logo-name {
+      font-family: var(--serif);
+      font-size: 1rem;
+      color: var(--cream);
+    }
+
+    .nav-back {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold-l);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: color 0.2s;
+    }
+
+    .nav-back:hover { color: var(--gold); }
+
+    /* HERO */
+    .pp-hero {
+      background: var(--forest);
+      padding: 4rem 3rem 5rem;
+      border-bottom: 1px solid rgba(196,168,130,0.15);
+    }
+
+    .pp-hero-inner { max-width: 760px; margin: 0 auto; }
+
+    .pp-label {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    .pp-hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      color: var(--cream);
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+
+    .pp-hero p {
+      font-size: 0.9rem;
+      color: rgba(250,246,241,0.55);
+    }
+
+    /* CONTENT */
+    .pp-content {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 5rem 3rem;
+    }
+
+    .pp-section {
+      margin-bottom: 3.5rem;
+      padding-bottom: 3.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .pp-section:last-child {
+      border-bottom: none;
+    }
+
+    .pp-section h2 {
+      font-family: var(--serif);
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--forest);
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+    }
+
+    .pp-section h2::before {
+      content: '';
+      display: inline-block;
+      width: 3px;
+      height: 1.2em;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
+
+    .pp-section h3 {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      color: var(--forest);
+      margin: 1.5rem 0 0.6rem;
+    }
+
+    .pp-section p {
+      font-size: 0.92rem;
+      color: #5a4030;
+      margin-bottom: 0.9rem;
+      line-height: 1.8;
+    }
+
+    .pp-section ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin: 0.8rem 0 1rem;
+    }
+
+    .pp-section ul li {
+      font-size: 0.9rem;
+      color: #5a4030;
+      display: flex;
+      gap: 0.7rem;
+      align-items: flex-start;
+      line-height: 1.65;
+    }
+
+    .pp-section ul li::before {
+      content: '✦';
+      color: var(--gold);
+      font-size: 0.65rem;
+      flex-shrink: 0;
+      margin-top: 4px;
+    }
+
+    .pp-section a {
+      color: var(--forest);
+      text-decoration: none;
+      border-bottom: 1px solid var(--border);
+      transition: border-color 0.2s;
+    }
+
+    .pp-section a:hover { border-color: var(--gold); }
+
+    /* info box */
+    .info-box {
+      background: var(--gold-xl);
+      border-left: 3px solid var(--gold);
+      padding: 1.2rem 1.5rem;
+      margin: 1.2rem 0;
+      font-size: 0.88rem;
+      color: var(--forest);
+      line-height: 1.7;
+    }
+
+    .info-box strong { font-weight: 500; }
+
+    /* table */
+    .cookie-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.2rem 0;
+      font-size: 0.85rem;
+    }
+
+    .cookie-table th {
+      background: var(--forest);
+      color: var(--cream);
+      padding: 0.7rem 1rem;
+      text-align: left;
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 400;
+    }
+
+    .cookie-table td {
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      color: #5a4030;
+      vertical-align: top;
+      line-height: 1.55;
+    }
+
+    .cookie-table tr:last-child td { border-bottom: none; }
+    .cookie-table tr:nth-child(even) td { background: var(--warm); }
+
+    /* date */
+    .pp-date {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      text-align: center;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--ink);
+      color: rgba(255,255,255,0.4);
+      padding: 2rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.78rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    footer a {
+      color: var(--gold-l);
+      text-decoration: none;
+    }
+
+    /* cookie banner */
+    .cookie-banner {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      z-index: 900;
+      background: var(--ink);
+      border-top: 1px solid rgba(196,168,130,0.2);
+      padding: 1.2rem 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      flex-wrap: wrap;
+      transform: translateY(100%);
+      transition: transform 0.5s;
+    }
+
+    .cookie-banner.visible { transform: none; }
+
+    .cookie-text { font-size: 0.82rem; color: rgba(255,255,255,0.65); flex: 1; }
+    .cookie-text a { color: var(--gold-l); }
+
+    .cookie-btns { display: flex; gap: 0.8rem; }
+
+    .cookie-accept {
+      background: var(--gold); color: var(--forest); border: none;
+      padding: 0.65rem 1.4rem; font-family: var(--mono);
+      font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase;
+      cursor: pointer; font-weight: 500;
+    }
+
+    .cookie-reject {
+      background: transparent; color: rgba(255,255,255,0.4);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 0.65rem 1.2rem; font-family: var(--mono);
+      font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    @media (max-width: 700px) {
+      nav { padding: 1rem 1.5rem; }
+      .pp-hero { padding: 3rem 1.5rem 4rem; }
+      .pp-content { padding: 3rem 1.5rem; }
+      footer { padding: 1.5rem; flex-direction: column; text-align: center; }
+      .cookie-banner { padding: 1.2rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="index.html">
+    <img src="img/symbol-krem-transparent.png" alt="Logo" />
+    <span class="nav-logo-name">Katarzyna Puchała</span>
+  </a>
+  <a class="nav-back" href="index.html">← Wróć na stronę główną</a>
+</nav>
+
+<!-- HERO -->
+<div class="pp-hero">
+  <div class="pp-hero-inner">
+    <p class="pp-label">Informacje prawne</p>
+    <h1>Polityka prywatności<br />i pliki cookie</h1>
+    <p>Ostatnia aktualizacja: lipiec 2025 · Obowiązuje od: 01.07.2025</p>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div class="pp-content">
+
+  <!-- 1. ADMINISTRATOR -->
+  <div class="pp-section">
+    <h2>Administrator danych osobowych</h2>
+    <p>Administratorem Twoich danych osobowych jest:</p>
+    <div class="info-box">
+      <strong>mgr Katarzyna Puchała</strong><br />
+      Prywatny Gabinet Neurologopedyczny<br />
+      Bilcza, gmina Morawica, województwo Świętokrzyskie<br />
+      E-mail: <a href="mailto:kpneurologopeda@gmail.com">kpneurologopeda@gmail.com</a><br />
+      Telefon: <a href="tel:727411741">727 411 741</a>
+    </div>
+    <p>W sprawach dotyczących przetwarzania danych osobowych możesz skontaktować się bezpośrednio pod powyższymi danymi kontaktowymi.</p>
+  </div>
+
+  <!-- 2. JAKIE DANE -->
+  <div class="pp-section">
+    <h2>Jakie dane zbieramy</h2>
+
+    <h3>Formularz kontaktowy</h3>
+    <p>Gdy wypełniasz formularz kontaktowy na stronie, zbieramy następujące dane:</p>
+    <ul>
+      <li>Imię i nazwisko</li>
+      <li>Numer telefonu</li>
+      <li>Adres e-mail (opcjonalnie)</li>
+      <li>Opis trudności i preferowany termin wizyty</li>
+      <li>Rodzaj konsultacji</li>
+    </ul>
+
+    <h3>Dane zbierane automatycznie</h3>
+    <p>Serwer oraz usługi zewnętrzne mogą automatycznie rejestrować:</p>
+    <ul>
+      <li>Adres IP urządzenia</li>
+      <li>Typ przeglądarki i systemu operacyjnego</li>
+      <li>Czas i datę odwiedzin</li>
+      <li>Adresy odwiedzanych podstron</li>
+    </ul>
+  </div>
+
+  <!-- 3. CEL I PODSTAWA PRAWNA -->
+  <div class="pp-section">
+    <h2>Cel i podstawa prawna przetwarzania</h2>
+    <ul>
+      <li><strong>Obsługa zapytań przez formularz kontaktowy</strong> — podstawa prawna: art. 6 ust. 1 lit. b RODO (niezbędność do podjęcia działań przed zawarciem umowy) oraz art. 6 ust. 1 lit. a RODO (zgoda)</li>
+      <li><strong>Umawianie i realizacja wizyt terapeutycznych</strong> — podstawa prawna: art. 6 ust. 1 lit. b RODO (wykonanie umowy)</li>
+      <li><strong>Analiza ruchu na stronie (Google Analytics)</strong> — podstawa prawna: art. 6 ust. 1 lit. a RODO (zgoda wyrażona przez akceptację plików cookie)</li>
+      <li><strong>Wypełnianie obowiązków prawnych</strong> — podstawa prawna: art. 6 ust. 1 lit. c RODO</li>
+    </ul>
+  </div>
+
+  <!-- 4. OKRES PRZECHOWYWANIA -->
+  <div class="pp-section">
+    <h2>Okres przechowywania danych</h2>
+    <ul>
+      <li>Dane z formularza kontaktowego — do czasu realizacji zapytania lub przez okres niezbędny do ochrony prawnej, nie dłużej niż 3 lata</li>
+      <li>Dane związane z realizacją usług terapeutycznych — przez okres wymagany przepisami prawa (dokumentacja medyczna: 20 lat)</li>
+      <li>Dane analityczne (Google Analytics) — zgodnie z polityką Google (domyślnie 26 miesięcy)</li>
+    </ul>
+  </div>
+
+  <!-- 5. PRAWA UŻYTKOWNIKA -->
+  <div class="pp-section">
+    <h2>Twoje prawa</h2>
+    <p>Na podstawie RODO przysługują Ci następujące prawa:</p>
+    <ul>
+      <li><strong>Prawo dostępu</strong> — możesz zażądać informacji o przetwarzanych danych</li>
+      <li><strong>Prawo do sprostowania</strong> — możesz zażądać poprawienia nieprawidłowych danych</li>
+      <li><strong>Prawo do usunięcia</strong> — możesz zażądać usunięcia danych (prawo do bycia zapomnianym)</li>
+      <li><strong>Prawo do ograniczenia przetwarzania</strong> — możesz zażądać ograniczenia przetwarzania danych</li>
+      <li><strong>Prawo do przenoszenia danych</strong> — możesz otrzymać swoje dane w ustrukturyzowanym formacie</li>
+      <li><strong>Prawo do sprzeciwu</strong> — możesz wnieść sprzeciw wobec przetwarzania danych</li>
+      <li><strong>Prawo do cofnięcia zgody</strong> — w każdej chwili możesz cofnąć wyrażoną zgodę</li>
+    </ul>
+    <p>Aby skorzystać z powyższych praw, skontaktuj się pod adresem: <a href="mailto:kpneurologopeda@gmail.com">kpneurologopeda@gmail.com</a></p>
+    <p>Masz również prawo wniesienia skargi do organu nadzorczego — Prezesa Urzędu Ochrony Danych Osobowych (UODO), ul. Stawki 2, 00-193 Warszawa.</p>
+  </div>
+
+  <!-- 6. ODBIORCY DANYCH -->
+  <div class="pp-section">
+    <h2>Odbiorcy danych</h2>
+    <p>Twoje dane mogą być przekazywane następującym podmiotom:</p>
+    <ul>
+      <li><strong>Formspree Inc.</strong> — obsługa formularza kontaktowego (USA; Transfer odbywa się na podstawie standardowych klauzul umownych)</li>
+      <li><strong>Vercel Inc.</strong> — hosting strony internetowej (USA; Transfer odbywa się na podstawie standardowych klauzul umownych)</li>
+      <li><strong>Google LLC</strong> — analityka internetowa Google Analytics (USA; Transfer odbywa się na podstawie standardowych klauzul umownych)</li>
+    </ul>
+    <p>Dane nie są przekazywane innym podmiotom trzecim bez Twojej wyraźnej zgody.</p>
+  </div>
+
+  <!-- 7. PLIKI COOKIE -->
+  <div class="pp-section">
+    <h2>Pliki cookie</h2>
+    <p>Strona używa plików cookie — małych plików tekstowych zapisywanych na Twoim urządzeniu. Poniżej znajdziesz szczegółowe informacje o używanych plikach cookie.</p>
+
+    <h3>Niezbędne pliki cookie</h3>
+    <p>Te pliki cookie są konieczne do prawidłowego działania strony. Nie wymagają zgody.</p>
+
+    <table class="cookie-table">
+      <thead>
+        <tr>
+          <th>Nazwa</th>
+          <th>Cel</th>
+          <th>Okres ważności</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>cookie_consent</code></td>
+          <td>Zapamiętuje Twój wybór dotyczący zgody na pliki cookie</td>
+          <td>1 rok</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Analityczne pliki cookie (wymagają zgody)</h3>
+    <p>Te pliki cookie pozwalają analizować ruch na stronie i poprawiać jej działanie. Są aktywowane wyłącznie po wyrażeniu zgody.</p>
+
+    <table class="cookie-table">
+      <thead>
+        <tr>
+          <th>Nazwa</th>
+          <th>Dostawca</th>
+          <th>Cel</th>
+          <th>Okres ważności</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>_ga</code></td>
+          <td>Google Analytics</td>
+          <td>Identyfikacja użytkownika w celach statystycznych</td>
+          <td>2 lata</td>
+        </tr>
+        <tr>
+          <td><code>_ga_*</code></td>
+          <td>Google Analytics</td>
+          <td>Przechowywanie stanu sesji</td>
+          <td>2 lata</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Jak zarządzać plikami cookie</h3>
+    <p>Możesz w każdej chwili zmienić ustawienia cookie w swojej przeglądarce lub skorzystać z poniższych linków:</p>
+    <ul>
+      <li><a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener">Google Chrome</a></li>
+      <li><a href="https://support.mozilla.org/pl/kb/wzmocniona-ochrona-przed-sledzeniem-w-firefoksie" target="_blank" rel="noopener">Mozilla Firefox</a></li>
+      <li><a href="https://support.apple.com/pl-pl/guide/safari/sfri11471/mac" target="_blank" rel="noopener">Safari</a></li>
+      <li><a href="https://support.microsoft.com/pl-pl/microsoft-edge" target="_blank" rel="noopener">Microsoft Edge</a></li>
+    </ul>
+  </div>
+
+  <!-- 8. BEZPIECZEŃSTWO -->
+  <div class="pp-section">
+    <h2>Bezpieczeństwo danych</h2>
+    <p>Stosujemy odpowiednie środki techniczne i organizacyjne w celu ochrony Twoich danych osobowych przed nieuprawnionym dostępem, zmianą, ujawnieniem lub zniszczeniem. Strona korzysta z szyfrowanego połączenia HTTPS.</p>
+    <p>Formularz kontaktowy jest obsługiwany przez Formspree — usługę spełniającą wymogi RODO i posiadającą certyfikat SSL.</p>
+  </div>
+
+  <!-- 9. ZMIANY POLITYKI -->
+  <div class="pp-section">
+    <h2>Zmiany polityki prywatności</h2>
+    <p>Niniejsza polityka prywatności może być aktualizowana. O istotnych zmianach będziemy informować poprzez widoczne ogłoszenie na stronie głównej. Data ostatniej aktualizacji jest zawsze widoczna na górze niniejszego dokumentu.</p>
+  </div>
+
+  <p class="pp-date">Dokument obowiązuje od 01.07.2025 · mgr Katarzyna Puchała · Bilcza, gmina Morawica</p>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <span>© 2025 mgr Katarzyna Puchała · Neurologopeda kliniczny · Bilcza, Kielce</span>
+  <a href="index.html">← Powrót na stronę główną</a>
+</footer>
+
+<!-- COOKIE BANNER -->
+<div class="cookie-banner" id="cookieBanner">
+  <p class="cookie-text">
+    Ta strona używa plików cookie wyłącznie w celu prawidłowego działania formularza kontaktowego i analizy ruchu.
+    Czytasz właśnie naszą <a href="polityka-prywatnosci.html">politykę prywatności</a>.
+  </p>
+  <div class="cookie-btns">
+    <button class="cookie-accept" id="cookieAccept">Akceptuję</button>
+    <button class="cookie-reject" id="cookieReject">Tylko niezbędne</button>
+  </div>
+</div>
+
+<script>
+  (function() {
+    const banner = document.getElementById('cookieBanner');
+    const accept = document.getElementById('cookieAccept');
+    const reject = document.getElementById('cookieReject');
+
+    if (!localStorage.getItem('cookie_consent')) {
+      setTimeout(() => banner.classList.add('visible'), 800);
+    }
+
+    function hide(val) {
+      localStorage.setItem('cookie_consent', val);
+      banner.style.transition = 'transform 0.4s ease';
+      banner.style.transform  = 'translateY(100%)';
+      setTimeout(() => banner.style.display = 'none', 420);
+    }
+
+    accept.addEventListener('click', () => hide('all'));
+    reject.addEventListener('click', () => hide('essential'));
+  })();
+</script>
+
+</body>
+</html>
